@@ -1,0 +1,15 @@
+{
+    // Set the default
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // Enable per-language
+    "[typescriptreact]": {
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true
+    },
+    "[json]": {
+        "editor.formatOnSave": true
+    }
+}
