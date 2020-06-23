@@ -1,6 +1,7 @@
 export default {
     colors: {
         text: '#adafb1',
+        textDark: '#333333',
         background: '#fff',
         /* specific colours */
         cardBackground: '#666',
@@ -37,8 +38,9 @@ export default {
             fontFamily: 'main',
             fontWeight: 'regular',
             px: 'xlarge',
-            '& > div, & > p': {
+            '& div, & p, & select': {
                 fontSize: 'body',
+                color: 'text',
             },
         },
     },

@@ -22,14 +22,6 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
         const selectedFilter = e.currentTarget.value;
 
         setSelected(selectedFilter);
-        console.log({
-            field: (selectedFilter.split(
-                '-'
-            )[0] as unknown) as ProductFilterType['field'],
-            direction: (selectedFilter.split(
-                '-'
-            )[1] as unknown) as ProductFilterType['direction'],
-        });
 
         // This is an exception as we need to read a string from the option value
         setFilter({
@@ -47,7 +39,19 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
     }
 
     return (
-        <select value={selected} onChange={handleSetFilter} {...props}>
+        <select
+            value={selected}
+            onChange={handleSetFilter}
+            {...props}
+            sx={{
+                p: 'small',
+                borderRadius: '8px',
+                fontWeight: 'bold',
+                backgroundImage: 'none',
+                backgroundColor: 'transparent',
+                color: 'textDark',
+            }}
+        >
             {filters.map((filter: ProductFilterType) => (
                 <option
                     key={filter.label}

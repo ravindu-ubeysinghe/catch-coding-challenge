@@ -95,11 +95,30 @@ const ProductListPage: React.FC = () => {
     return (
         <Fragment>
             <PageHeader>
-                <div>{meta?.query}</div>
-                <ProductFilters
-                    filters={productFilters}
-                    setFilter={handleFilterChange}
-                />
+                <div
+                    sx={{
+                        display: 'flex',
+                        justifyContent: ['center', 'flex-end'],
+                        alignItems: ['center', 'flex-end'],
+                        height: '100%',
+                    }}
+                >
+                    <div
+                        sx={{
+                            fontSize: 'h2',
+                            fontWeight: 'bold',
+                            textTransform: 'capitalize',
+                            mr: 'large',
+                            color: 'textDark',
+                        }}
+                    >
+                        {meta?.query || ''}
+                    </div>
+                    <ProductFilters
+                        filters={productFilters}
+                        setFilter={handleFilterChange}
+                    />
+                </div>
             </PageHeader>
             {pageContent}
         </Fragment>
