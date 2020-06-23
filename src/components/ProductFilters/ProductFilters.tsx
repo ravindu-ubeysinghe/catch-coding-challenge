@@ -5,8 +5,10 @@ import { useState } from 'react';
 import { ProductFilterType } from '../../types/Product';
 
 interface ProductFiltersProps {
-    filters: ProductFilterType[];
-    setFilter: (filter: Pick<ProductFilterType, 'field' | 'direction'>) => void;
+    filters?: ProductFilterType[];
+    setFilter?: (
+        filter: Pick<ProductFilterType, 'field' | 'direction'>
+    ) => void;
 }
 
 const ProductFilters: React.FC<ProductFiltersProps> = ({
@@ -15,7 +17,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
     ...props
 }) => {
     const [selected, setSelected] = useState(
-        `${filters[0].field}-${filters[0].direction}`
+        filters.length > 0 ? `${filters[0].field}-${filters[0].direction}` : ''
     );
 
     const handleSetFilter = (e: React.FormEvent<HTMLSelectElement>) => {
@@ -34,7 +36,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
         });
     };
 
-    if (filters.length <= 0) {
+    if (filters.length < 1) {
         return null;
     }
 
@@ -51,6 +53,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
                 backgroundColor: 'transparent',
                 color: 'textDark',
             }}
+            data-testid="productFilters"
         >
             {filters.map((filter: ProductFilterType) => (
                 <option

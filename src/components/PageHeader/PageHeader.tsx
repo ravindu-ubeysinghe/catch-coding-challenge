@@ -13,6 +13,7 @@ const PageHeader: React.FC = ({ children, ...props }) => (
             flexDirection: ['column', 'row'],
             py: 'large',
         }}
+        data-testid="pageHeader"
     >
         <img
             sx={{
@@ -22,6 +23,7 @@ const PageHeader: React.FC = ({ children, ...props }) => (
             }}
             src={logo}
             alt="Catch.com.au logo"
+            data-testid="logo"
         />
         <div sx={{ flex: [1, 2], mt: ['large', 0] }}>{children}</div>
     </div>

@@ -5,10 +5,14 @@ import ProductCard from '../ProductCard/ProductCard';
 import { ProductType } from '../../types/Product';
 
 interface ProductListProps {
-    products: ProductType[] | undefined;
+    products?: ProductType[];
 }
 
 const ProductList: React.FC<ProductListProps> = ({ products = [] }) => {
+    if (!products || products.length < 1) {
+        return null;
+    }
+
     return (
         <div
             sx={{
@@ -17,6 +21,7 @@ const ProductList: React.FC<ProductListProps> = ({ products = [] }) => {
                 flexDirection: 'row',
                 flexWrap: 'wrap',
             }}
+            data-testid="productList"
         >
             {products.map((product) => (
                 <ProductCard

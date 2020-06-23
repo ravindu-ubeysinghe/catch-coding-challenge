@@ -5,10 +5,14 @@ import { ProductType } from '../../types/Product';
 import { convertCentsToDollars } from '../../utils/currency';
 
 interface ProductCardProps {
-    product: ProductType;
+    product?: ProductType;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, ...props }) => {
+    if (!product) {
+        return null;
+    }
+
     return (
         <div
             sx={{
@@ -21,6 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, ...props }) => {
                     alignItems: 'center',
                 },
             }}
+            data-testid="productCard"
             {...props}
         >
             <div
