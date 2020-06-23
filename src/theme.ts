@@ -18,11 +18,18 @@ export default {
         regular: 400,
         bold: 700,
     },
+    space: {
+        small: '5px',
+        regular: '10px',
+        large: '20px',
+        xlarge: '40px',
+    },
     breakpoints: ['480px', '1024px', '1440px', '1920px'],
     styles: {
         root: {
             fontFamily: 'main',
             fontWeight: 'regular',
+            px: 'xlarge',
         },
         h1: {
             fontWeight: 'bold',
