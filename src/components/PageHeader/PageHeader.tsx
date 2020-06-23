@@ -16,7 +16,7 @@ const PageHeader: React.FC = ({ children, ...props }) => (
     >
         <img
             sx={{
-                maxWidth: ['100%, 200px'],
+                maxWidth: ['100%', '200px'],
                 maxHeight: ['80px', 'none'],
                 flex: 1,
             }}
