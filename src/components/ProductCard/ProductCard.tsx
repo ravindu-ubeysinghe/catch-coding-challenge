@@ -30,12 +30,28 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, ...props }) => {
                     mb: 'large',
                     bg: product.imageUrl ? 'none' : 'cardBackground',
                     color: 'white',
+                    position: 'relative',
                 }}
             >
                 {product.imageUrl ? (
                     <img src={product.imageUrl} alt={product.name}></img>
                 ) : (
                     <span>No image found</span>
+                )}
+                {product.quantityAvailable === 0 && (
+                    <div
+                        sx={{
+                            position: 'absolute',
+                            bottom: 'small',
+                            right: 'small',
+                            p: 'small',
+                            color: 'white',
+                            backgroundColor: '#979797',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        SOLD OUT
+                    </div>
                 )}
             </div>
             <div sx={{ textAlign: 'center', height: '20%', fontSize: 'body' }}>
