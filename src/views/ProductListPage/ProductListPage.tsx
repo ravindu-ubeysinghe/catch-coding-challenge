@@ -63,7 +63,21 @@ const ProductListPage: React.FC = () => {
                 }}
             >
                 {(response.results || []).map((product) => (
-                    <ProductCard key={product.id} sx={{ width: '20%' }} />
+                    <ProductCard
+                        key={product.id}
+                        product={product}
+                        sx={{
+                            width: ['100%', '45%', '22%'],
+                            mr: [null, '10%', '4%'],
+                            mb: 'large',
+                            '&:nth-of-type(2n)': {
+                                mr: [null, 0, 'auto'],
+                            },
+                            '&:nth-of-type(4n)': {
+                                mr: [null, null, 0],
+                            },
+                        }}
+                    />
                 ))}
             </div>
         );

@@ -2,6 +2,10 @@ export default {
     colors: {
         text: '#adafb1',
         background: '#fff',
+        /* specific colours */
+        cardBackground: '#666',
+        /* generics */
+        white: '#fff',
     },
     fonts: {
         main: 'Roboto, Arial, Helvetica, sans-serif',
@@ -24,24 +28,18 @@ export default {
         large: '20px',
         xlarge: '40px',
     },
+    shadows: {
+        base: '0 1px 4px 1px rgba(0, 0, 0, 0.08)',
+    },
     breakpoints: ['480px', '1024px', '1440px', '1920px'],
     styles: {
         root: {
             fontFamily: 'main',
             fontWeight: 'regular',
             px: 'xlarge',
-        },
-        h1: {
-            fontWeight: 'bold',
-        },
-        h2: {
-            fontWeight: 'bold',
-        },
-        h3: {
-            fontWeight: 'bold',
-        },
-        h4: {
-            fontWeight: 'bold',
+            '& > div, & > p': {
+                fontSize: 'body',
+            },
         },
     },
 };
