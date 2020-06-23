@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 
-import Product from '../../types/Product';
+import { ProductType } from '../../types/Product';
 import { convertCentsToDollars } from '../../utils/currency';
 
 interface ProductCardProps {
-    product: Product;
+    product: ProductType;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, ...props }) => {

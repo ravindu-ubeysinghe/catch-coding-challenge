@@ -1,4 +1,4 @@
-type Product = {
+export type ProductType = {
     id: string;
     name: string;
     salePrice: number;
@@ -7,4 +7,12 @@ type Product = {
     quantityAvailable: number;
 };
 
-export default Product;
+export type ProductListType = {
+    metadata: {
+        query: string;
+        total: number;
+        page: number;
+        pages: number;
+    };
+    results: ProductType[];
+};

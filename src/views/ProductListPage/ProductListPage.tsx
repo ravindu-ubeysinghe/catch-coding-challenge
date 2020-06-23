@@ -4,21 +4,11 @@ import { Fragment, useEffect, useState, useMemo } from 'react';
 import axios, { AxiosResponse } from 'axios';
 
 import PageHeader from '../../components/PageHeader/PageHeader';
-import ProductCard from '../../components/ProductCard/ProductCard';
-import Product from '../../types/Product';
-
-type ProductList = {
-    metadata: {
-        query: string;
-        total: number;
-        page: number;
-        pages: number;
-    };
-    results: Product[];
-};
+import ProductList from '../../components/ProductList/ProductList';
+import { ProductListType } from '../../types/Product';
 
 const ProductListPage: React.FC = () => {
-    const [response, setResponse] = useState<ProductList | null>(null);
+    const [response, setResponse] = useState<ProductListType | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | undefined>(undefined);
 
@@ -28,7 +18,7 @@ const ProductListPage: React.FC = () => {
             .get(
                 'https://cors-anywhere.herokuapp.com/http://catch-code-challenge.s3-website-ap-southeast-2.amazonaws.com/challenge-3/response.json'
             )
-            .then((res: AxiosResponse<ProductList>) => {
+            .then((res: AxiosResponse<ProductListType>) => {
                 setResponse(res.data);
                 setError(undefined);
             })
@@ -53,34 +43,7 @@ const ProductListPage: React.FC = () => {
             );
         }
 
-        return (
-            <div
-                sx={{
-                    width: '100%',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
-                }}
-            >
-                {(response.results || []).map((product) => (
-                    <ProductCard
-                        key={product.id}
-                        product={product}
-                        sx={{
-                            width: ['100%', '45%', '22%'],
-                            mr: [null, '10%', '4%'],
-                            mb: 'large',
-                            '&:nth-of-type(2n)': {
-                                mr: [null, 0, 'auto'],
-                            },
-                            '&:nth-of-type(4n)': {
-                                mr: [null, null, 0],
-                            },
-                        }}
-                    />
-                ))}
-            </div>
-        );
+        return <ProductList products={response?.results} />;
     }, [error, loading, response]);
 
     return (
