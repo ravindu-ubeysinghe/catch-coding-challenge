@@ -16,3 +16,13 @@ export type ProductListType = {
     };
     results: ProductType[];
 };
+
+export type ProductFilterType = {
+    // 'retailPrice' | 'quantityAvailable' have been added as extra for future extensibility
+    field: keyof Pick<
+        ProductType,
+        'salePrice' | 'retailPrice' | 'quantityAvailable'
+    >;
+    direction: 'asc' | 'desc';
+    label: string;
+};
